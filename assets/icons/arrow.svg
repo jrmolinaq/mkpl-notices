@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="8px" viewBox="0 0 13 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 63.1 (101010) - https://sketch.com -->
+    <title>D487EB47-4CD5-44D1-8950-6C0C4DAD019E</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="[UI]PROVEEDOR-/-CARGAR-INVENTARIO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04_[Inventario]-Catalogo-inventario" transform="translate(-1267.000000, -47.000000)" fill="#0D4D64" fill-rule="nonzero" stroke="#0D4D64">
+            <g id="Btn/Perfil" transform="translate(1138.000000, 23.000000)">
+                <g id="ic_flecha-drop-dowm" transform="translate(130.000000, 25.000000)">
+                    <path d="M5.39994041,6.00001238 C5.24044216,6.00092448 5.08713943,5.93830787 4.97389644,5.82598437 L0.173401038,1.02548897 C0.0211901891,0.873278123 -0.0382549143,0.651425977 0.0174581232,0.44350209 C0.0731711608,0.235578203 0.235578203,0.0731711608 0.44350209,0.0174581232 C0.651425977,-0.0382549143 0.873278123,0.0211901891 1.02548897,0.173401038 L5.39994041,4.55385309 L9.77439184,0.173401038 C10.0096894,-0.0618965474 10.3911822,-0.0618965474 10.6264798,0.173401038 C10.8617774,0.408698624 10.8617774,0.790191386 10.6264798,1.02548897 L5.82598437,5.82598437 C5.71274139,5.93830787 5.55943866,6.00092448 5.39994041,6.00001238 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

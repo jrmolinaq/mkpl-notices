@@ -1,0 +1,10 @@
+<div class="row2 middle">
+  <div class="controls-container m-right-4 row2 middle space-between">
+    <button class="paginator-control prev" title="Primera página" (click)="gotofirstPage()" [disabled]="firstPage"></button>
+    <button class="paginator-control prev"  title="Anterior" (click)="prevPage()" [disabled]="firstPage"></button>
+    <span class="deep-sea-green">{{lowerLimit}} - {{upperLimit}}</span>
+    <button class="paginator-control next" title="Siguiente" (click)="nextPage()" [disabled]="lastPage"></button>
+    <button class="paginator-control next" title="Última página" (click)="gotolastPage()" [disabled]="lastPage"></button>
+  </div>
+  <span class="deep-sea-green total-items">de {{totalElements}}</span>
+</div>

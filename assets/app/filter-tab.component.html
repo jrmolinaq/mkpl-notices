@@ -1,0 +1,7 @@
+<div class="row2 middle filter-container">
+  <div class="radio-group m-right-1" *ngFor="let radio of data">
+    <input type="radio" name="filter-tab" [id]="'tab-' + radio.id" [value]="radio.id"
+      [checked]="radio.checked" (change)='changeTab(radio.id)' />
+    <label class="text-big" [for]="'tab-' + radio.id">{{radio.value}}</label>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="column2 start">
+    <h1 class="title-medium bold deep-sea-green m-bottom-8">Avisos</h1>
+    <filter-tab [data]="tabFilters" (valueChange)="changeFilter($event)"></filter-tab>
+
+    <div class="paginator-selector">
+      <form [formGroup]="selectForm">
+        <label class="deep-sea-green bold">Elementos por página:</label>
+        <select formControlName="selectControl" class="deep-sea-green bold" (change)="newValue($event.target.value)">
+          <option *ngFor="let element of elementNumber" [value]="element.value">
+            {{element.display}}
+          </option>
+        </select>
+      </form>
+    </div>
+
+    <div class="search-container row2 middle">
+      <input class="search-input border-none" placeholder="Buscar por número de aviso o placa" (keyup.enter)="searchItem(inputText.value)" type="text" #inputText>
+      <button class="search-button border-none" (click)="searchItem(inputText.value)" title="Buscar"></button>
+      <button class="clear-button border-none" (click)="refresh()" title="Restablecer"></button>
+    </div>
+
+    <ng-container *ngIf="$notices | async as notices; else loader">
+        <empty *ngIf="!notices.data.length; else listNotices" class="width-100" [data]="emptyNotices"></empty>
+        <ng-template #listNotices>
+            <div class="width-100 column2 m-bottom-6 m-top-6 table-container-notices">
+                <div class="table-content-header row2">
+                    <h3 class="header-title deep-sea-green title-small-poppins bold item-1 row2 middle">
+                        Número de aviso
+                    </h3>
+                    <h3 class="header-title deep-sea-green title-small-poppins bold item-1 row2 middle">
+                        Placa vehículo
+                    </h3>
+                    <h3 class="header-title deep-sea-green title-small-poppins bold item-1 row2 middle">
+                        Marca y línea
+                    </h3>
+                    <h3 class="header-title deep-sea-green title-small-poppins bold item-1 row2 middle">
+                        Días activos
+                        <button type="button" (click)="handleNotices('ascending', 'date')" class="icon-sortable">
+							<i class="icon icon-long-down-arrow hoki text-big"></i>
+						</button>
+                        <button type="button" (click)="handleNotices('descending', 'date')" class="icon-sortable">
+							<i class="icon icon-long-up-arrow hoki text-big"></i>
+						</button>
+                    </h3>
+                    <h3 class="header-title deep-sea-green title-small-poppins bold item-1 row2 middle">
+                        Taller
+                    </h3>
+                    <h3 class="header-title deep-sea-green title-small-poppins bold item-1 row2 middle">
+                        Ciudad
+                        <button type="button" (click)="handleNotices('descending', 'city')" class="icon-sortable">
+							<i class="icon icon-long-down-arrow hoki text-big"></i>
+						</button>
+                        <button type="button" (click)="handleNotices('ascending', 'city')" class="icon-sortable">
+							<i class="icon icon-long-up-arrow hoki text-big"></i>
+						</button>
+                    </h3>
+                </div>
+                <!-- TODO se quita routerlink <div class="row2 table-content-item middle" *ngFor="let item of notices.data" [routerLink]="['detail', item.id]" (click)="saveFilters()"> -->
+				<div class="row2 table-content-item middle" *ngFor="let item of notices.data">
+                    <span class="table-item deep-sea-green text-normal item-1">
+            			<span [ngClass]="item.status === 'critical' ? 'circle-status danger' : 'circle-status'" class="span-wolox m-right-3"></span> {{ item?.external_event }}
+                    </span>
+                    <span class="table-item deep-sea-green text-normal item-1">
+						{{ item.plate }}
+					</span>
+                    <span class="table-item deep-sea-green text-normal item-1">
+						{{ item.brand }} {{ item.line }}
+					</span>
+                    <span class="table-item deep-sea-green text-normal item-1">
+						{{ item.date }}
+					</span>
+                    <span class="table-item deep-sea-green text-normal item-1">
+						{{ item.workshop }}
+					</span>
+                    <span class="table-item deep-sea-green text-normal item-1 row2 middle space-between">
+						<span class="text-normal row2 middle center deep-sea-green chip m-right-5">
+							{{ item.city }}
+						</span>
+						<a href="/notices/detail?id={{item.id}}" (click)="saveFilters()">
+							<button type="button" class="icon-button row2 middle center m-left-3">
+								<i class="icon icon-long-right-arrow deep-sea-green text-big"></i>
+							</button>
+						</a>
+					</span>
+                </div>
+            </div>
+            <paginator [paginator]="notices" (page)="currentPageChange($event)"></paginator>
+        </ng-template>
+    </ng-container>
+    <ng-template #loader>
+        <img class="loader" src="/o/mkpl-notices/icons/Eclipse-1s-200px.gif" alt="loader">
+    </ng-template>
+</div>

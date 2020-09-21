@@ -1,0 +1,35 @@
+.controls-container {
+  background-color: #FFF;
+  border: 2px solid #F5F6FB;
+  border-radius: 8px;
+  height: 40px;
+  padding: 0 10px;
+  width: 200px;
+}
+
+.paginator-control {
+  background-color: #E7ECEF;
+  border-radius: 4px;
+  height: 24px;
+  width: 24px;
+}
+
+.prev:disabled {
+  pointer-events: none;
+  visibility: hidden;
+}
+.prev::before {
+  content: url(/o/mkpl-notices/icons/arrow.svg);
+  display: block;
+  transform: rotate(90deg);
+}
+
+.next:disabled {
+  pointer-events: none;
+  visibility: hidden;
+}
+.next::before {
+  content: url(/o/mkpl-notices/icons/arrow.svg);
+  display: block;
+  transform: rotate(-90deg);
+}
