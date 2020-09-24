@@ -32,10 +32,9 @@ export class NoticeService {
       .set('order_by', orderBy.toString())
       .set('order', order.toString())
       .set('limit', limit.toString());
-      // TODO actualizar ruta endpoint
     return this.http
       .get<ListNoticeResponse>(
-        `http://localhost:8081/api/notice/status/${status}`,
+        `http://localhost:8080/o/ProviderCompraDigitalPortlet/api/notice/status/${status}`,
         { params }
       )
       .pipe(
@@ -83,10 +82,9 @@ export class NoticeService {
       .set('order_by', orderBy.toString())
       .set('order', order.toString())
       .set('limit', limit.toString());
-      // TODO actualizar ruta endpoint
     return this.http
       .get<ListNoticeResponse>(
-        `http://localhost:8081/api/notice/filter/${filter}`,
+        `http://localhost:8080/o/ProviderCompraDigitalPortlet/api/notice/filter/${filter}`,
         { params }
       )
       .pipe(
