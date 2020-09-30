@@ -34,7 +34,7 @@ export class NoticeService {
       .set('limit', limit.toString());
     return this.http
       .get<ListNoticeResponse>(
-        `http://localhost:8080/o/ProviderCompraDigitalPortlet/api/notice/status/${status}`,
+        `/o/ProviderCompraDigitalPortlet/api/notice/status/${status}`,
         { params }
       )
       .pipe(
@@ -59,7 +59,7 @@ export class NoticeService {
       // TODO actualizar ruta endpoint David
     return this.http
       .get<ListManualPurchaseResponse>(
-        `http://localhost:8080/o/ProviderCompraDigitalPortlet/api/order/manualpurchase/${orderBy}`,
+        `/o/ProviderCompraDigitalPortlet/api/order/manualpurchase/${orderBy}`,
         { params }
       )
       .pipe(
@@ -84,7 +84,7 @@ export class NoticeService {
       .set('limit', limit.toString());
     return this.http
       .get<ListNoticeResponse>(
-        `http://localhost:8080/o/ProviderCompraDigitalPortlet/api/notice/filter/${filter}`,
+        `/o/ProviderCompraDigitalPortlet/api/notice/filter/${filter}`,
         { params }
       )
       .pipe(
@@ -134,7 +134,7 @@ export class NoticeService {
       .set('page', page.toString());
     // TODO actualizar ruta endpoint
     return this.http
-      .get<ListNoticeResponse>(`http://localhost:8080/o/ProviderCompraDigitalPortlet/api/notice/${path}`, {
+      .get<ListNoticeResponse>(`/o/ProviderCompraDigitalPortlet/api/notice/${path}`, {
         params,
       })
       .pipe(
